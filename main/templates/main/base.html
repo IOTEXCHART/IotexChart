@@ -1,0 +1,263 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="alternate icon" href="https://iotexchart.com/wp-content/uploads/2021/11/NEW-LOGO.png">
+    <link rel="icon" type="image/svg+xml" href="https://iotexchart.com/wp-content/uploads/2021/11/NEW-LOGO.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="iotex | XRC20 | XRC721 | Chart | Token Information | Market Cap | Ranking | Total Supply | All time high | All time low | ATH | ATL  "/>
+
+    <meta name="msapplication-TileColor" content="#da532c"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta property="og:title" content="IotexChart"/>
+    <meta name="twitter:title" content="IotexChart"/>
+
+    <meta name="twitter:description" content="The genesis chart platform for the IOTEX blockchain.
+    "/>
+    <meta property="og:description" content="The genesis chart platform for the IOTEX blockchain."/>
+
+    
+    <meta name="description" content="The genesis chart platform for the IOTEX blockchain" content="IE=edge"/>
+
+    <title>IotexChart - The genesis chart platform for the IOTEX blockchain</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://iotexchart.com/wp-content/uploads/2021/11/NEW-LOGO.png"/>
+    
+    <link rel="alternate icon" href="https://iotexchart.com/wp-content/uploads/2021/11/NEW-LOGO.png">
+    <link rel="shortcut icon" href="https://iotexchart.com/wp-content/uploads/2021/11/NEW-LOGO.png" type="image/x-icon">
+    <link rel="icon" href="https://iotexchart.com/wp-content/uploads/2021/11/NEW-LOGO.png" type="image/x-icon">
+    <meta name="msapplication-TileColor" content="#da532c"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta property="og:title" content="IotexChart"/>
+    <meta name="twitter:title" content="IotexChart"/>
+
+    
+	<!-- Vendors Style-->
+	<link rel="stylesheet" href="{% static 'main/css/vendors_css.css' %}">
+	  
+	<!-- Style-->    
+	<link rel="stylesheet" href="{% static 'main/css/horizontal-menu.css' %}"> 
+	<link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'main/css/skin_color.css' %}">
+     
+  </head>
+
+<body class="layout-top-nav dark-skin theme-primary">
+	
+<div class="wrapper">
+  <div id="loader"></div>
+	
+  <header class="main-header">
+	  <div class="inside-header">
+		<div class="d-flex align-items-center logo-box justify-content-start">
+			<!-- Logo -->
+			<a href="/" class="logo">
+			  <!-- logo-->
+			  <div class="logo-lg">
+				  <span class="light-logo"><img width="50px" src="https://iotexchart.com/wp-content/uploads/2021/11/NEW-LOGO.png" alt="logo"></span>
+				  <span class="dark-logo"><img width="50px" src="https://iotexchart.com/wp-content/uploads/2021/11/NEW-LOGO.png" alt="logo"></span>
+			  </div>
+			</a>	
+		</div>  
+		<!-- Header Navbar -->
+		<nav class="navbar navbar-static-top">
+		  <!-- Sidebar toggle button-->
+		  <div class="app-menu">
+			<ul class="header-megamenu nav">
+				
+				
+				
+			</ul> 
+		  </div>
+
+		  <div class="navbar-custom-menu r-side">
+			<ul class="nav navbar-nav">	
+				<li class="btn-group nav-item d-lg-inline-flex d-none">
+					<a href="#" data-provide="fullscreen" class="waves-effect waves-light nav-link full-screen" title="Full Screen">
+						<i class="icon-Expand-arrows"><span class="path1"></span><span class="path2"></span></i>
+					</a>
+				</li>	  
+				<li class="btn-group d-lg-inline-flex d-none">
+					<div class="app-menu">
+						<div class="search-bx mx-5">
+							<form>
+								<div class="input-group">
+								  <input type="search" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
+								  <div class="input-group-append">
+									<button class="btn" type="submit" id="button-addon3"><i class="ti-search"></i></button>
+								  </div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</li>
+			  <!-- Notifications -->
+
+			  <!-- User Account-->
+			  {% if user.is_authenticated %}
+
+			  <li class="dropdown user user-menu">
+				<a href="#" class="waves-effect waves-light dropdown-toggle" data-toggle="dropdown" title="User">
+					<i class="icon-User"><span class="path1"></span><span class="path2"></span></i>
+				</a>
+				
+				<ul class="dropdown-menu animated flipInX">
+				  <li class="user-body" style="z-index:999999">
+				  						 <a class="dropdown-item" href="/all-banner/"><i class="fa fa-bullhorn text-muted mr-2"></i> Submitted Ads</a>
+					 <a class="dropdown-item" href="/all-vetted/"><i class="fa fa-btc text-muted mr-2"></i> Submitted Tokens</a>
+					 <a class="dropdown-item" href="#"><i class="ti-settings text-muted mr-2"></i> Settings</a>
+					 <div class="dropdown-divider"></div>
+					 <a class="dropdown-item" href="#"><i class="ti-lock text-muted mr-2"></i> Logout</a>
+					 
+				  </li>
+				</ul>
+				
+			  </li>
+			  {% endif %}
+			  
+			  <li class="btn-group nav-item d-none d-xl-inline-block">
+					<a href="/signin/" class="waves-effect waves-light nav-link svg-bt-icon" title="admin login">
+						<i class="fa fa-lock"><span class="path1"></span><span class="path2"></span></i>
+					</a>
+				</li>
+			  
+
+			  <!-- Control Sidebar Toggle Button -->
+			  
+
+			</ul>
+		  </div>
+		</nav>
+
+
+	  </div>
+  </header>
+  
+  <nav class="main-nav" role="navigation">
+
+	  <!-- Mobile menu toggle button (hamburger/x icon) -->
+	  <input id="main-menu-state" type="checkbox" />
+	  <label class="main-menu-btn" for="main-menu-state">
+		<span class="main-menu-btn-icon"></span> Toggle main menu visibility
+	  </label>
+
+	  <!-- Sample menu definition -->
+	  <ul id="main-menu" class="sm sm-blue">
+		<li><a href="/"><i class="fa fa-home"><span class="path1"></span><span class="path2"></span></i>Home</a></li>
+		<li><a href="https://iotexchart.com/" target="_blank"><i class="icon-Incoming-mail"><span class="path1"></span><span class="path2"></span></i>About</a></li>
+		
+		<li><a href="/banner/"><i type="button" class="fa fa-bullhorn"><span class="path1"></span><span class="path2"></span></i>Banner Advert</a></li>
+
+
+		<li><a href="/unvetted/"><i class="fa fa-btc"><span class="path1"></span><span class="path2"></span></i>List Token</a>			
+		  
+		<li><a href="#"><i class="fa fa-question-circle"><span class="path1"></span><span class="path2"></span></i>Frequently Asked Questions</a>			  
+			 	  	
+		</li>
+		<li><a href="#"><i class="icon-Incoming-mail"><span class="path1"></span><span class="path2"></span></i>Contact Us</a>
+		   	
+		</li>
+		<li><a href="#"><i class="fa fa-book"><span class="path1"></span><span class="path2"></span></i>Documentations</a>
+		  
+			
+		
+					  
+		</li>
+		<li><a href="#"><i class="icon-Mail-notification"><span class="path1"></span><span class="path2"></span></i>More</a></li>
+	  </ul>
+	</nav>
+
+	
+{% block content %}
+
+{% endblock %}
+
+
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="pull-right d-none d-sm-inline-block">
+        <ul class="nav nav-primary nav-dotted nav-dot-separated justify-content-center justify-content-md-end">
+		  <li class="nav-item">
+			<a class="nav-link" href="javascript:void(0)">FAQ</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="/">Home</a>
+		  </li>
+		</ul>
+    </div>
+	  &copy; 2021 <a href="#">Oppenhiem.io</a>. All Rights Reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar">
+	  
+	
+  </aside>
+  <!-- /.control-sidebar -->
+  
+  <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+  
+</div>
+<!-- ./wrapper -->
+	
+	<!-- ./side demo panel -->
+	
+	<!-- Sidebar -->
+	<!-- Modal -->
+  <div class="modal center-modal fade" id="modal-center" tabindex="-1">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title">Modal title</h5>
+			<button type="button" class="close" data-dismiss="modal">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+		  </div>
+		  <div class="modal-body">
+			<p>Your content comes here</p>
+		  </div>
+		  <div class="modal-footer modal-footer-uniform">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			<button type="button" class="btn btn-primary float-right">Save changes</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  <!-- /.modal -->	
+	
+
+		
+	
+	<!-- Page Content overlay -->
+	
+	
+	<!-- Vendor JS -->
+	<script src="{% static 'main/js/vendors.min.js' %}"></script>
+	<script src="{% static 'main/js/pages/chat-popup.js' %}"></script>
+    <script src="{% static 'assets/icons/feather-icons/feather.min.js' %}"></script>	
+
+	<script src="{% static 'assets/vendor_components/apexcharts-bundle/dist/apexcharts.js' %}"></script>
+	
+
+	<script src="{% static 'main/js/jquery.smartmenus.js' %}"></script>
+	<script src="{% static 'main/js/menus.js' %}"></script>
+	<script src="{% static 'main/js/template.js' %}"></script>
+	<script src="{% static 'main/js/pages/dashboard4.js' %}"></script>
+
+
+	<script src="{% static 'assets/vendor_plugins/bootstrap-slider/bootstrap-slider.js' %}"></script>
+	<script src="{% static 'assets/vendor_components/OwlCarousel2/dist/owl.carousel.js' %}"></script>
+	<script src="{% static 'assets/vendor_components/flexslider/jquery.flexslider.js' %}"></script>
+
+	
+	<script src="{% static 'main/js/pages/slider.js' %}"></script>
+
+	<script src="{% static 'main/js/pages/coundown-timer.js' %}"></script>
+	
+</body>
+</html>

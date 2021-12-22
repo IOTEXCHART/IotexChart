@@ -1,0 +1,88 @@
+{% extends "main/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+  
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+	  <div class="container-full">
+		<!-- Content Header (Page header) -->
+		<div class="content-header">
+			<div class="d-flex align-items-center">
+				<div class="mr-auto">
+					<h3 class="page-title">Token Listing</h3>
+					<div class="d-inline-block align-items-center">
+						<nav>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="/"><i class="mdi mdi-home-outline"></i></a></li>
+								<li class="breadcrumb-item" aria-current="page">home</li>
+								<li class="breadcrumb-item active" aria-current="page">listing</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+
+		<!-- Main content -->
+		<section class="content">
+			
+		  
+			<div class="row justify-content-center no-gutters">
+				<div class="col-lg-8">
+					<div class="box">
+						<div class="box-body">
+							<h4 class="box-title">Submitted for Listing</h4>
+							
+							<div class="table-responsive">
+								<table class="table">
+									<thead class="bg-primary">
+										<tr>
+											<th>#</th>
+											<th>Token Address</th>
+											<th>Telegram Url</th>
+											<th>Date</th>
+											<th>Status</th>
+											<th>Action</th>
+										</tr>
+									</thead>
+									<tbody>
+										{% for rs in vetted %}
+										<tr>
+											<td>{{ forloop.counter }}</td>
+											<td>{{ rs.token_address }}</td>
+											<td>{{ rs.telegram_url }}</td>
+											<td>{{ rs.pub_date }}</td>
+											<td>{{ rs.status }}</td>
+											<td><a href="/verify/vetted/{{rs.id}}"><i class="mdi mdi-home-outline"></i></a></td>
+										</tr>
+										{% endfor %}
+										
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+
+
+			vetted
+				{% for rs in response %}
+			
+					{{ rs.data.cryptoTopSearchRanks.name }}
+
+				{% endfor %}
+			
+			
+
+		  
+  <!-- /.content-wrapper -->
+  
+   
+	
+{% endblock %}

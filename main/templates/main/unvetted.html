@@ -1,0 +1,173 @@
+{% extends "main/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+	  <div class="container-full">
+		<!-- Content Header (Page header) -->
+		<div class="content-header align-items-center justify-content-center">
+			<div class="d-flex align-items-center justify-content-center">
+				<div class="mr-auto">
+					<h3 class="page-title align-items-center">Unvetted List</h3>
+					<div class="d-inline-block align-items-center">
+						<nav>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+								
+								<li class="breadcrumb-item active" aria-current="page">Unvetted List</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+<style type="text/css">
+    
+    .alert{
+        box-shadow: 5px 5px 10px #111;
+        border: none;
+    }
+    @keyframes show-toast {
+    0%   {bottom: -100%;}
+    20%  {bottom: 50px;}
+    80%  {bottom: 50px;}
+    100% {bottom: -100%;}
+}
+
+.notification.is-toast {
+    position: fixed;
+    bottom: 100%;
+    right: 20px;
+    animation-name: show-toast;
+    animation-duration: 4s;
+}
+@media(max-width: 450px) {
+    h3{
+      font-size: 15px !important;
+    }
+  }
+</style>	
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="notification is-toast alert alert-{{message.tags}} text-center" role="alert" style="background-color: #1DB954; color: #fff; border-radius: 6px; font-weight: 600;">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %} 
+
+		<!-- Main content -->
+		<section class="content" >
+			<div class="row justify-content-center no-gutters">			  
+				<div class="col-lg-8 col-12">
+					  <div class="box">
+						<div class="box-header with-border">
+						  <h4 class="box-title">Create Advertisement</h4>
+						</div>
+						<!-- /.box-header -->
+						<form class="form" action="" method="post" enctype="multipart/form-data">
+							{% csrf_token %}
+							<div class="box-body">
+								<h4 class="box-title text-info"><i class="ti-file mr-15"></i> Personal Info</h4>
+								<p>The Un-Vetted list will place all new submissions to the top of the list, pushing the rest down. You can promote the same token as many times as you want, putting it back to the top of the list.</p>
+
+								<p>If your token is pushed off the top-10 most recent deposits, it will no longer be on the list and you will have to deposit again to get it back onto the top.</p>
+
+								<p>Place your token on the Un-Vetted list by depositing 2000.0000 IotexChart Tokens. This is non-refundable and cant be withdrawn.</p>
+
+								<p class="box-title">Wallet Address : 0x100000000000000000000000000000000000  <i class="ti-clipboard mr-15 copy-btn" data-hex="0x100000000000000000000000000000000000 "></i></p>
+								<hr class="my-15">
+								<div class="row">
+								  <div class="col-md-6">
+									<div class="form-group">
+									  <label>Token address</label><br>
+									  <small>(Must be a valid Iotex token address)</small>
+									  <input name="token_address" type="text" class="form-control" placeholder="token address">
+									</div>
+								  </div>
+								  <div class="col-md-6">
+									<div class="form-group">
+									  <label>Telegram url</label><br>
+									  <small>(Must be a valid telegram group url starting with https://t.me/)</small>
+									  <input name="telegram_url" type="text" class="form-control" placeholder="https://t.me/">
+									</div>
+								  </div>
+
+								</div>
+								<div class="row">
+								  
+								  <div class="col-md-6">
+									<div class="form-group">
+									  <label >Upload Payment Screenshot</label>
+									  <input name="image" type="file" class="form-control" placeholder="upload payment screenhot">
+									</div>
+								  </div>
+								
+
+								
+								</div>
+								
+								<hr class="my-15">
+								
+								<div class="row">
+								  
+								  
+								</div>
+								<p style="color: green">After depositing, you will need to wait for some time for our admins to verify you to see your token on the unvetted list.</p>
+								
+								
+							</div>
+							<!-- /.box-body -->
+							<div class="box-footer">
+								<a href="/">
+								<button type="button" class="btn btn-rounded btn-warning btn-outline mr-1">
+								  <i class="ti-trash"></i> Cancel
+								</button>
+							</a>
+								<button type="submit" class="btn btn-rounded btn-primary btn-outline">
+								  <i class="ti-save-alt"></i> Save
+								</button>
+							</div>  
+						</form>
+					  </div>
+					  <!-- /.box -->			
+				</div>  
+
+				
+
+				
+
+				
+
+				
+
+				
+			
+
+		</section>
+		<!-- /.content -->
+	  </div>
+  </div>
+  <!-- /.content-wrapper -->
+
+<script type="text/javascript">
+  const copyBtns = [...document.getElementsByClassName('copy-btn')]
+  let previous = null
+
+  copyBtns.forEach(btn=> btn.addEventListener('click', ()=>{
+    const number = btn.getAttribute('data-hex')
+    navigator.clipboard.writeText(number)
+    btn.textContent = 'copied'
+
+    if (previous) {
+      previous.textContent = 'copied'
+    }
+    previous = btn
+  }))
+</script>
+
+{% endblock %}

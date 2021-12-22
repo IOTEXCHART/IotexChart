@@ -1,0 +1,198 @@
+{% extends "main/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+	  <div class="container-full">
+		<!-- Content Header (Page header) -->
+		<div class="content-header align-items-center justify-content-center">
+			<div class="d-flex align-items-center justify-content-center">
+				<div class="mr-auto">
+					<h3 class="page-title align-items-center">Create Advertising Campaign</h3>
+					<div class="d-inline-block align-items-center">
+						<nav>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="/"><i class="mdi mdi-home-outline"></i></a></li>
+								
+								<li class="breadcrumb-item active" aria-current="page">Create Advertising Campaign</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+
+<style type="text/css">
+    
+    .alert{
+        box-shadow: 5px 5px 10px #111;
+        border: none;
+    }
+    @keyframes show-toast {
+    0%   {bottom: -100%;}
+    20%  {bottom: 50px;}
+    80%  {bottom: 50px;}
+    100% {bottom: -100%;}
+}
+
+.notification.is-toast {
+    position: fixed;
+    bottom: 100%;
+    right: 20px;
+    animation-name: show-toast;
+    animation-duration: 4s;
+}
+@media(max-width: 450px) {
+    h3{
+      font-size: 15px !important;
+    }
+  }
+</style>
+
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="notification is-toast alert alert-{{message.tags}} text-center" role="alert" style="background-color: #1DB954; color: #fff; border-radius: 6px; font-weight: 600;">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %} 
+
+		<!-- Main content -->
+		<section class="content">
+			<div class="row justify-content-center no-gutters">			  
+				<div class="col-lg-8 col-12">
+					  <div class="box">
+						<div class="box-header with-border">
+						  <h4 class="box-title">Create Advertisement</h4>
+						</div>
+						<!-- /.box-header -->
+						<form class="form" action="" method="post" enctype="multipart/form-data">
+							{% csrf_token %}
+							<div class="box-body">
+								<h4 class="box-title text-info"><i class="ti-file mr-15"></i> Personal Info</h4>
+								<hr class="my-15">
+								<div class="row">
+								  <div class="col-md-6">
+									<div class="form-group">
+									  <label>Title</label>
+									  <input type="text" name="title" class="form-control" placeholder="your ads title">
+									</div>
+								  </div>
+								  <div class="col-md-6">
+									<div class="form-group">
+									  <label>Text</label>
+									  <input name="text" type="text" class="form-control" placeholder="Your ads text">
+									</div>
+								  </div>
+								</div>
+								<div class="row">
+								  <div class="col-md-6">
+									<div class="form-group">
+									  <label >Link</label>
+									  <input name="link" type="text" class="form-control" placeholder="https://example.com">
+									</div>
+								  </div>
+								  <div class="col-md-6">
+									<div class="form-group">
+									  <label >Banners</label>
+									  <input name="image" type="file" class="form-control" placeholder="Phone">
+									</div>
+								  </div>
+								</div>
+								<h4 class="box-title text-info"><i class="ti-save mr-15"></i> Requirements</h4>
+								<hr class="my-15">
+								<div class="form-group">
+								  <label>Company</label>
+								  <input name="company_name" type="text" class="form-control" placeholder="Company Name">
+								</div>
+								<div class="row">
+								  <div class="col-md-6">
+									<div class="form-group">
+									  <label>Into</label>
+									  <input name="interest" type="text" class="form-control" placeholder="what are you into">
+									</div>
+								  </div>
+								  <div class="col-md-6">
+									<div class="form-group">
+									  <label>Budget</label>
+									  <select class="form-control" name="budget">
+										
+										<option value="100$">100$</option>
+										<option value="250$">250$</option>
+										<option value="300$">300$</option>
+										<option value="500$">500$</option>
+									  </select>
+									</div>
+								  </div>
+								</div>
+								<p style="color: green">Payment should be made to the the address: <strong>0x100000000000000000000000000000000000 </strong></p>
+
+								<div class="col-12">
+        
+            							<p style="background-color: #0e1326"  class="btn btn-primary btn-block copy-btn" data-hex="0x100000000000000000000000000000000000">copy c.a to clipboard!</p>
+          						</div>
+								<div class="form-group">
+								  <label>Include Proof of payment</label>
+								 <input name="proof_of_payment" type="text" class="form-control" placeholder="transaction hash">
+								</div>
+								<div class="form-group">
+								  <label>About Project</label>
+								  <textarea name="about_project" rows="5" class="form-control" placeholder="About Project"></textarea>
+								</div>
+							</div>
+							<!-- /.box-body -->
+							<div class="box-footer">
+								<a href="/">								
+								<button type="button" class="btn btn-rounded btn-warning btn-outline mr-1">
+								  <i class="ti-trash"></i> Cancel
+								</button>
+								</a>
+								<button type="submit" class="btn btn-rounded btn-primary btn-outline">
+								  <i class="ti-save-alt"></i> Save
+								</button>
+							</div>  
+						</form>
+					  </div>
+					  <!-- /.box -->			
+				</div>  
+
+				
+
+				
+
+				
+
+				
+
+				
+			
+
+		</section>
+		<!-- /.content -->
+	  </div>
+  </div>
+  <!-- /.content-wrapper -->
+<script type="text/javascript">
+  const copyBtns = [...document.getElementsByClassName('copy-btn')]
+  let previous = null
+
+  copyBtns.forEach(btn=> btn.addEventListener('click', ()=>{
+    const number = btn.getAttribute('data-hex')
+    navigator.clipboard.writeText(number)
+    btn.textContent = 'copied'
+
+    if (previous) {
+      previous.textContent = 'copied'
+    }
+    previous = btn
+  }))
+</script>
+
+{% endblock %}
+
+

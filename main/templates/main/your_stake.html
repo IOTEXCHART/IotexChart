@@ -1,0 +1,144 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- Content Wrapper. Contains page content -->
+<style type="text/css">
+				/*-----------------------------
+  Countdown-timer
+-----------------------------*/
+.Countdown-timer .item {
+  display: inline-block;
+  text-align: center;
+  margin: 0 0.5rem;
+}
+.Countdown-timer .item span {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+}
+.Countdown-timer .item p {
+  color: #6c7a87;
+  font-size: 10px;
+  text-transform: capitalize;
+}
+.Countdown-timer .cuot {
+  position: absolute;
+  font-size: 15px;
+  color: #0b2238;
+}
+			</style>
+  <div class="content-wrapper">
+	  <div class="container-full">
+		<!-- Main content -->
+		<section class="content">
+			<div class="row">
+				
+				
+				<div class="col-12">														
+					<div class="box no-shadow mb-0 bg-transparent">
+						<div class="box-header no-border px-0">
+							<h4 class="box-title">My Stakes</h4>	
+							<ul class="box-controls pull-right d-md-flex d-none">
+							  <li>
+								<button class="btn bg-gradient-primary px-10">new stake</button>
+							  </li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 col-12">
+					<div class="box pull-up">
+						<div class="box-body d-flex">
+							
+							<div class="d-flex flex-column flex-grow-1">
+								<h5 class="box-title font-size-16 mb-2">Total Staked</h5>
+								<a href="#">2000 Iotexchart</a>
+								<p></p>
+								<p></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 col-12">
+					<div class="box pull-up">
+						<div class="box-body d-flex ">
+							
+							<div class="d-flex flex-column flex-grow-1">
+								<h5 class="box-title font-size-16 mb-2">Compount APY</h5>
+								<a href="#">15%</a>
+								<p></p>
+								<p></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 col-12">
+					<div class="box pull-up">
+						<div class="box-body d-flex ">
+							
+							<div class="d-flex flex-column flex-grow-1 Countdown-timer">
+								<h5 class="box-title font-size-16 mb-2">Staking Duration</h5>
+									
+                <div class="">
+                  <div countdown data-date="Jan 9 2022 23:59:59">
+                    <div class="item">
+                      <span data-days>0</span>
+                      <p>days</p>
+                    </div>
+                    <span class="cuot">:</span>
+                    <div class="item">
+                      <span data-hours>0</span>
+                      <p>hours</p>
+                    </div>
+                    <span class="cuot">:</span>
+                    <div class="item">
+                      <span data-minutes>0</span>
+                      <p>minutes</p>
+                    </div>
+                    <span class="cuot">:</span>
+                    <div class="item">
+                      <span data-seconds>0</span>
+                      <p>seconds</p>
+                    </div>
+                 
+                </div>
+              </div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 col-12">
+					<div class="box pull-up">
+						<div class="box-body d-flex ">
+							
+							<div class="d-flex flex-column flex-grow-1">
+								<h5 class="box-title font-size-16 mb-2">Status</h5>
+								<a href="#">ongoing</a>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<button type="button" class="waves-effect waves-light btn  bg-gradient-primary">New Stake</button>
+			
+
+
+											
+					</div>
+				</div>
+			</div>
+			
+		</section>
+		<!-- /.content -->
+
+
+	  </div>
+  </div>
+  <br><br><br>
+
+
+
+ {% endblock %}

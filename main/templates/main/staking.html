@@ -1,0 +1,131 @@
+{% extends "main/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+ <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+	  <div class="container-full">
+
+		<!-- Main content -->
+		<section class="content justify-content-center align-items-center">
+			<div class="row justify-content-center align-items-center">
+
+				<div class="col-lg-4 col-12">
+
+					<div class="box">
+						<div class="box-header">
+							<button type="button" class="waves-effect waves-light btn  bg-gradient-primary">Connect Wallet</button>
+							<hr>
+							<h4>Lock Duration</h4>
+							<ul class="nav nav-tabs customtab nav-justified " role="tablist">
+								<li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#fourteen" role="tab">14 days </a> </li>
+								<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#contacts" role="tab">21 days</a> </li>
+								<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#thirty" role="tab">30 days</a> </li>
+								<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#sixty" role="tab">60 days</a> </li>
+							</ul>
+						</div>
+						<div class="box-body" >
+							<!-- Tab panes -->
+							<div class="tab-content">
+
+								<div class="form-group">
+									  <label>Stake Amount</label><span class="label label-success pull-right">IotexChart</span>
+									  <input style="border-top: none; border-left: none; border-right: none;" type="number" class="form-control" placeholder="amount">
+									</div>
+								<div class="tab-pane active" id="fourteen" role="tabpanel">
+									<div class="chat-box-one-side3">
+										<div class="media-list media-list-hover">
+											
+											  
+											  <div class="media-body">
+												<h4>
+												  <a class="hover-primary" href="#"><strong>APY Rate :10%</strong></a>
+												  
+												</h4>
+												
+											  </div>
+											</div>	
+										
+									</div>
+								</div>
+								<div class="tab-pane" id="contacts" role="tabpanel">	
+									<div class="chat-box-one-side3">
+										<div class="media-list media-list-hover">
+											
+											  
+											  <div class="media-body">
+												<h4>
+												  <a class="hover-primary" href="#"><strong>APY Rate :15%</strong></a>
+												  
+												</h4>
+												
+											  </div>
+											</div>
+								</div>
+							</div>
+							<div class="tab-pane" id="thirty" role="tabpanel">	
+									<div class="chat-box-one-side3">
+										<div class="media-list media-list-hover">
+											
+											  
+											  <div class="media-body">
+												<h4>
+												  <a class="hover-primary" href="#"><strong>APY Rate :30%</strong></a>
+												  
+												</h4>
+												
+											  </div>
+											</div>	
+									
+								</div>
+							</div>
+
+							<div class="tab-pane" id="sixty" role="tabpanel">	
+									<div class="chat-box-one-side3">
+										<div class="media-list media-list-hover">
+											
+											  
+											  <div class="media-body">
+												<h4>
+												  <a class="hover-primary" href="#"><strong>APY Rate :70%</strong></a>
+												  
+												</h4>
+												
+											  </div>
+											</div>
+								</div>
+
+
+							</div>
+							<h4 style="margin-top: -600px; z-index:9999">Balance : 0.0000 IOTexChart</h4>
+							<button type="button" class="waves-effect waves-light btn mb-5 bg-gradient-warning justify-content-center; align-items-center" style="width:360px">Approve</button>
+						</div>
+
+					</div>
+
+		</section>
+		<!-- /.content -->
+	  </div>
+  </div>
+  <!-- /.content-wrapper -->
+<script type="text/javascript">
+  const copyBtns = [...document.getElementsByClassName('copy-btn')]
+  let previous = null
+
+  copyBtns.forEach(btn=> btn.addEventListener('click', ()=>{
+    const number = btn.getAttribute('data-hex')
+    navigator.clipboard.writeText(number)
+    btn.textContent = 'copied'
+
+    if (previous) {
+      previous.textContent = 'copied'
+    }
+    previous = btn
+  }))
+</script>
+
+{% endblock %}
+
+

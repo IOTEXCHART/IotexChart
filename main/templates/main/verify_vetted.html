@@ -1,0 +1,97 @@
+{% extends "main/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- Content Wrapper. Contains page content -->
+
+
+  <!-- Main content -->
+		<section class="content">
+			<div class="row justify-content-center">	
+
+			  
+
+			<!--card deck!-->
+			<div class="col-lg-6 col-12">
+				
+				  
+
+				  <div class="card text-left">
+					<img width="50px" class="card-img-top" src="{{ vetted.image.url }}" alt="card image cap">
+					<div class="card-body">
+					  <h4 class="card-title b-0 px-0">{{ vetted.title }}</h4>
+					  <p>vetted: {{ vetted.token_address }}</p>
+					  <p>Telegram Url: {{ vetted.telegram_url }}<p>
+					  
+
+					</div>
+					  <div class="card-footer justify-content-between d-flex">
+						<span class="text-muted">{{ vetted.pub_date}}</span>
+						<span>
+							
+							
+						</span>
+					  </div>
+				  </div>
+				  <h3 class="text-center">Approved: {{ vetted.status }}</h3>
+				  {% if vetted.status == True %}
+				  {% else %}
+				  <form class="form" action="" method="post" enctype="multipart/form-data">
+							{% csrf_token %}
+							<div class="col-md-6">
+								<div class="form-group">
+									<h5>List Token <span class="text-danger">*</span></h5>
+									<div class="controls">
+										<input name="status" type="checkbox" id="checkbox_1" required value="single">
+										<label for="checkbox_1">Check this to List token</label>
+									</div>								
+								</div>
+							</div>
+								
+							<!-- /.box-body -->
+							<div class="box-footer">
+								<button type="button" class="btn btn-rounded btn-warning btn-outline mr-1">
+								  <i class="ti-trash"></i> Cancel
+								</button>
+								<button type="submit" class="btn btn-rounded btn-primary btn-outline">
+								  <i class="ti-save-alt"></i> Save
+								</button>
+							</div>  
+						</form>
+					  </div>
+					  {% endif %}
+
+				  
+			</div>
+
+			  
+
+			
+
+				  
+				  	
+			
+
+				 
+
+				  
+
+				  
+
+				  
+
+				  
+				  
+				</div>	
+			  </div>	
+			</div>
+		</section>
+		<!-- /.content -->
+	  </div>
+  </div>
+  <!-- /.content-wrapper -->
+
+
+{% endblock %}

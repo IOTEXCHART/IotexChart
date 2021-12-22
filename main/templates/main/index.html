@@ -1,0 +1,361 @@
+{% extends "main/base.html" %}
+
+{% load static %}
+{% load humanize %}
+{% block content %}
+<nav class="main-nav" role="navigation" >
+	  <script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/coinMarquee.js"></script><div style="margin-left: -150px" id="coinmarketcap-widget-marquee" coins="1,1027,825,2777,5426,5994,12973,11206,14911,14586,12180" currency="USD" theme="dark" transparent="true" show-symbol-logo="true"></div>
+
+
+	</nav>
+
+	<nav class="main-nav" role="navigation" style="z-index: 9999; padding: 40px; margin-top: -60px; background: transparent;">
+	</nav>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+	  <div class="container-full">
+		<!-- Main content -->
+		<section class="content">
+			<div class="row">
+				<div class="col-12">
+					<div class="box bg-gradient-primary overflow-hidden pull-up">
+						<div class="box-body pr-0 pl-lg-50 pl-15 py-0">							
+							<div class="row align-items-center">
+								<div class="col-12 col-lg-8">
+									<h1 class="font-size-40 text-white">Welcome Onboard!</h1>
+									<p class="text-white mb-0 font-size-20">
+										View price charts for any token in the Iotx Chain
+									</p>
+								</div>
+								<div class="col-12 col-lg-4"><img src="{% static 'images/svg-icon/color-svg/custom-15.svg' %}" alt=""></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-12">
+				<div class="box">
+					
+					<!-- /.box-header -->
+					<div class="box-body">				  
+						<div class="owl-carousel owl-theme">
+							{% for rs in banner %}
+							{% if rs.status == False %}
+
+       				 {% else %}
+							<a href="{{ rs.link }}" target="_blank">	
+							<div class="box mb-0">
+								<img class="card-img-top img-responsive" src="{{ rs.image.url }}" alt="Card image cap">
+								<p><p class="mb-0 font-size-18">{{ rs.title }}</p></p>
+							</div>
+						</a>
+						{% endif %}
+							{% endfor %}
+						
+							
+
+						</div>
+					</div>
+					<!-- /.box-body -->
+				  </div>  
+			</div>  	
+
+			<div class="row">
+				<div class="col-12">														
+					<div class="box no-shadow mb-0 bg-transparent">
+						<div class="box-header no-border px-0">
+							
+							
+						</div>
+					</div>
+				</div>
+			</div>
+        
+        
+			<div class="row">
+				
+				<div class="col-xl-8 col-12">
+					<div class="box no-shadow mb-0 bg-transparent">
+						<div class="box-header no-border px-0">
+							<h4 class="box-title">Token Information</h4>		
+						</div>
+
+					</div>
+					<div>
+
+
+						
+				 
+
+			
+
+						<div class=" col-12">
+							<li class="btn-group d-lg-inline-flex d-none" style="border: none;">
+					<div class="app-menu">
+						<div class="search-bx mx-5">
+							<form>
+								<div class="input-group">
+								  <input type="search" class="form-control" placeholder="enter address or name" aria-label="Search" aria-describedby="button-addon2">
+								  <div class="input-group-append">
+									<button style="background-color:#0c1A32" class="btn" type="submit" id="button-addon3"><i style="color: #fff;" class="ti-search"></i></button>
+								  </div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</li>
+			  <div class="box">
+				
+				<!-- /.box-header -->
+				<div class="box-body no-padding">
+					<div class="table-responsive">
+					  <table class="table table-hover">
+						<tr>
+						  <th>Token Name</th>
+						  <th>Total Supply</th>
+						  <th>Last Price</th>
+						  <th>Market Cap</th>
+						  <th>Rank</th>
+						  
+						</tr>
+						<tr>
+							<tr>
+								{% for rs in iotex%}
+						  <td><img width="20px" height="20px" src="{{ rs.image }}"><a href="{% url 'main:iotex' %}"> {{ rs.name }} ({{ rs.symbol}})</a></td>
+						  <td>{{ rs.total_supply }}</td>
+						  <td><span class="text-muted"><i class="fa fa-clock-o"></i> ${{ rs.current_price }}</span> </td>
+						  <td>{{ rs.market_cap|intcomma}}</td>
+						  <td>{{ rs.market_cap_rank}}</td>
+						  {% endfor %}
+						</tr>
+							{% for rs in zoom %}
+						  <td><img width="20px" height="20px" src="{{ rs.image }}"><a href="{% url 'main:zoom_swap' %}"> {{ rs.name }} ({{ rs.symbol}})</a></td>
+						  <td>{{ rs.total_supply }}</td>
+						  <td><span class="text-muted"><i class="fa fa-clock-o"></i> ${{ rs.current_price }}</span> </td>
+						   <td>{{ rs.market_cap}}</td>
+						  <td>{{ rs.market_cap_rank}}</td>
+						  {% endfor %}
+						</tr>
+						<tr>
+							{% for rs in vita %}
+						  <td><img width="20px" height="20px" src="{{ rs.image }}"><a href="{% url 'main:vitality' %}"> {{ rs.name }} ({{ rs.symbol}})</a></td>
+						  <td>{{ rs.total_supply }} </td>
+						  <td><span class="text-muted"><i class="fa fa-clock-o"></i> ${{ rs.current_price }}</span> </td>
+						   <td>{{ rs.market_cap}}</td>
+						  <td>{{ rs.market_cap_rank}}</td>
+						  {% endfor %}
+						  
+						</tr>
+						<tr>
+							{% for rs in wow %}
+						  <td><img width="20px" height="20px" src="{{ rs.image }}"><a href="{% url 'main:wow' %}"> {{ rs.name }} ({{ rs.symbol}})</a></td>
+						  <td>{{ rs.total_supply }} </td>
+						  <td><span class="text-muted"><i class="fa fa-clock-o"></i> ${{ rs.current_price }}</span> </td>
+						   <td>{{ rs.market_cap}}</td>
+						  <td>{{ rs.market_cap_rank}}</td>
+						  {% endfor %}
+						  
+						</tr>
+						<tr>
+							{% for rs in data %}
+						  <td><img width="20px" height="20px" src="{{ rs.image }}"><a href="{% url 'main:game_fantasy_token' %}"> {{ rs.name }} ({{ rs.symbol}})</a></td>
+						  <td>{{ rs.total_supply }}</td>
+						  <td><span class="text-muted"><i class="fa fa-clock-o"></i> ${{ rs.current_price }}</span> </td>
+						   <td>{{ rs.market_cap}}</td>
+						  <td>{{ rs.market_cap_rank}}</td>
+						  {% endfor %}
+						</tr>
+						<tr>
+								{% for rs in metanyx %}
+						  <td><img width="20px" height="20px" src="{{ rs.image }}"><a href="{% url 'main:metanyx' %}"> {{ rs.name }} ({{ rs.symbol}})</a></td>
+						  <td>{{ rs.total_supply }}</td>
+						  <td><span class="text-muted"><i class="fa fa-clock-o"></i> ${{ rs.current_price }}</span> </td>
+						   <td>{{ rs.market_cap}}</td>
+						  <td>{{ rs.market_cap_rank}}</td>
+						  {% endfor %}
+						</tr>
+
+						<tr>
+								{% for rs in iotexshiba %}
+						  <td><img width="20px" height="20px" src="{{ rs.image }}"><a href="{% url 'main:iotex_shiba' %}"> {{ rs.name }} ({{ rs.symbol}})</a></td>
+						  <td>{{ rs.total_supply }}</td>
+						  <td><span class="text-muted"><i class="fa fa-clock-o"></i> ${{ rs.current_price }}</span> </td>
+						   <td>{{ rs.market_cap}}</td>
+						  <td>{{ rs.market_cap_rank}}</td>
+						  {% endfor %}
+						</tr>
+
+						<tr>
+								{% for rs in imagictoken %}
+						  <td><img width="20px" height="20px" src="{{ rs.image }}"><a href="{% url 'main:imagictoken' %}"> {{ rs.name }} ({{ rs.symbol}})</a></td>
+						  <td>{{ rs.total_supply }}</td>
+						  <td><span class="text-muted"><i class="fa fa-clock-o"></i> ${{ rs.current_price }}</span> </td>
+						   <td>{{ rs.market_cap}}</td>
+						  <td>{{ rs.market_cap_rank}}</td>
+						  {% endfor %}
+						</tr>
+						
+					  </table>
+					</div>
+				</div>
+				<!-- /.box-body -->
+			  </div>
+			  <!-- /.box -->
+			</div>
+		</div>
+	</div>
+
+
+									
+								
+						
+												
+						
+				
+				<div class="col-xl-4 col-12">
+					<div class="box no-shadow mb-0 bg-transparent">
+					<div class="box-header no-border px-0">
+						<h4 class="box-title">Recent Adverts</h4>							
+						
+					</div>
+				</div>
+					<div>
+            {% for rs in aside_banner %}
+            <a href="{{ rs.link }}" target="_blank">
+						<div class="box bt-5 border-danger rounded pull-up">
+							<div class="box-body">	
+								<div class="flex-grow-1">	
+									<div class="d-flex align-items-center pr-2 justify-content-between">							
+										<img width="100%" src="{{ rs.image.url }}">
+										<div class="dropdown">
+											
+											</div>
+										</div>						
+									</div>
+									<p class="font-size-16">
+										{{ rs.title }}
+									</p>
+								</div>							
+										
+						</div>
+					</a>
+            {% endfor %}
+						
+					</div>
+				</div>
+				
+			
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+	  <div class="container-full">
+		<!-- Main content -->
+		<section class="content">
+<style type="text/css">
+    .list li {
+  cursor: pointer;
+}
+.list li:hover:after,
+.list li.fav:after {
+  content: ' \2605';
+  color: rgb(255, 203, 0);
+}
+.list li.fav:hover:after {
+  content: ' \2606';
+}
+  </style>
+			<div class="row">
+				<div class="col-xl-6 col-lg-6 col-12">
+					<div class="box">
+						<div class="box-header with-border">
+					  <h4 class="box-title">Recently Listed Coins</h4>
+					  <ul class="box-controls pull-right">
+						<li><a class="box-btn-slide" href="#"></a></li>	
+					  </ul>
+					</div>
+						<div class="box-body no-padding mailbox-nav">
+							
+
+
+	<ul class="list nav nav-pills flex-column">    
+  
+  <li style="padding-left: 18px; padding-top: 8px; padding-bottom: 8px;" id="Iotex" class="nav-item"><img height="20px" width="20px" src="https://assets.coingecko.com/coins/images/3334/small/iotex-logo.png?1547037941"><a href="{% url 'main:iotex' %}"> Iotex (iotx)</a> </li>
+
+
+  <li style="padding-left: 18px; padding-top: 8px; padding-bottom: 8px;" id="donuts"><img height="20px" width="20px" src="https://assets.coingecko.com/coins/images/18807/small/icon_zoomswap.png?1633479755"><a href="{% url 'main:zoom_swap' %}"> ZoomSwap (ZW)</a></li>
+
+
+  <li style="padding-left: 18px; padding-top: 8px; padding-bottom: 8px;" id="cupcakes"><img height="20px" width="20px" src="https://assets.coingecko.com/coins/images/20338/small/logoioshib200.png?1636941034"><a href="{% url 'main:iotex_shiba' %}"> IotexShiba (IOSHIB)</a></li>
+
+
+  <li style="padding-left: 18px; padding-top: 8px; padding-bottom: 8px;" id="icecream"><img height="20px" width="20px" src="https://assets.coingecko.com/coins/images/19190/small/icon_vita.png?1634631257">  <a href="{% url 'main:vitality' %}"> Vitality (VITA)  </a></li>
+
+
+  <li style="padding-left: 18px; padding-top: 8px; padding-bottom: 8px;" id="cookies"><img height="20px" width="20px" src="https://assets.coingecko.com/coins/images/19135/small/gft.png?1635004303">  <a href="{% url 'main:game_fantasy_token' %}"> Game Fantasy Token (gft)</a></li>
+  
+</ul>
+
+
+<script type="text/javascript">
+  // get favorites from local storage or empty array
+var favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+// add class 'fav' to each favorite
+favorites.forEach(function(favorite) {
+  document.getElementById(favorite).className = 'fav';
+});
+// register click event listener
+document.querySelector('.list').addEventListener('click', function(e) {
+  var id = e.target.id,
+      item = e.target,
+      index = favorites.indexOf(id);
+  // return if target doesn't have an id (shouldn't happen)
+  if (!id) return;
+  // item is not favorite
+  if (index == -1) {
+    favorites.push(id);
+    item.className = 'fav';
+  // item is already favorite
+  } else {
+    favorites.splice(index, 1);
+    item.className = '';
+  }
+  // store array in local storage
+  localStorage.setItem('favorites', JSON.stringify(favorites));
+});
+
+// local storage stores strings so we use JSON to stringify for storage and parse to get out of storage
+</script>
+</div>
+							
+						</div>
+					</div>
+				
+				<div class="col-xl-6 col-lg-6 col-12">
+					<div class="box">
+					<div class="box-header with-border">
+					  <h4 class="box-title">IotexChart</h4>
+					  <ul class="box-controls pull-right">
+						<li><a class="box-btn-slide" href="#"></a></li>	
+					  </ul>
+					</div>
+					<div class="box-body no-padding mailbox-nav">
+					  <ul class="nav nav-pills flex-column ">
+						<li id="Iotex" class="nav-item"><a class="nav-link" href="/banner/"><i class="fa fa-bullhorn"></i> Banner Advert <small>advertise your banners</small>
+						  </a></li>
+						<li class="nav-item"><a class="nav-link" href="/unvetted/"><i class="fa fa-btc"></i> Token Advert <small>advertise your token on iotex chart</small></a></li>
+						<li class="nav-item"><a class="nav-link" href="javascript:void(0)"><i class="fa fa-exchange"></i> IotexChartDex <span class="label label-warning pull-right">coming soon</span></a></li>
+						<li class="nav-item"><a class="nav-link" href="javascript:void(0)"><i class="ti-wallet"></i>  Portfolio <span class="label label-warning pull-right">coming soon</span></a>
+						</li>
+						<li class="nav-item"><a class="nav-link" href="https://iotexchart.com/" target="_blank"><i class="fa fa-globe"></i> About Us</a></li>
+					  </ul>
+					</div>
+					</div>
+				
+				
+				</div>
+			</section>
+		</div></div>
+
+			
+{% endblock %}
